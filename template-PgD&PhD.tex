@@ -1,8 +1,34 @@
-% !TEX TS-program = xelatex
+% !TEX program = xelatex
 % !TEX encoding = UTF-8 Unicode
+% !BIB program = biber
 
-% \documentclass[AutoFakeBold]{LZUThesis}
-\documentclass[AutoFakeBold]{LZUThesis-PgD&PhD}
+\documentclass[AutoFakeBold]{LZUThesis}
+
+% 统一中文字体族，避免仅使用 ctex 默认 Fandol 导致部分 PDF 预览器中文渲染异常
+\IfFontExistsTF{Noto Serif CJK SC}{%
+  \setCJKmainfont{Noto Serif CJK SC}%
+  \IfFontExistsTF{Noto Sans CJK SC}{\setCJKsansfont{Noto Sans CJK SC}}{\setCJKsansfont{Noto Serif CJK SC}}%
+  \setCJKfamilyfont{zhsong}{Noto Serif CJK SC}%
+  \IfFontExistsTF{Noto Sans CJK SC}{\setCJKfamilyfont{zhhei}{Noto Sans CJK SC}}{\setCJKfamilyfont{zhhei}{Noto Serif CJK SC}}%
+  \setCJKfamilyfont{zhkai}{Noto Serif CJK SC}%
+  \setCJKfamilyfont{zhfs}{Noto Serif CJK SC}%
+}{%
+  \IfFontExistsTF{Source Han Serif SC}{%
+    \setCJKmainfont{Source Han Serif SC}%
+    \IfFontExistsTF{Source Han Sans SC}{\setCJKsansfont{Source Han Sans SC}}{\setCJKsansfont{Source Han Serif SC}}%
+    \setCJKfamilyfont{zhsong}{Source Han Serif SC}%
+    \IfFontExistsTF{Source Han Sans SC}{\setCJKfamilyfont{zhhei}{Source Han Sans SC}}{\setCJKfamilyfont{zhhei}{Source Han Serif SC}}%
+    \setCJKfamilyfont{zhkai}{Source Han Serif SC}%
+    \setCJKfamilyfont{zhfs}{Source Han Serif SC}%
+  }{%
+    \setCJKmainfont{FandolSong-Regular}% TeX Live fallback
+    \setCJKsansfont{FandolHei-Regular}%
+    \setCJKfamilyfont{zhsong}{FandolSong-Regular}%
+    \setCJKfamilyfont{zhhei}{FandolHei-Regular}%
+    \setCJKfamilyfont{zhkai}{FandolKai-Regular}%
+    \setCJKfamilyfont{zhfs}{FandolFang-Regular}%
+  }%
+}%
 
 
 \begin{document}
